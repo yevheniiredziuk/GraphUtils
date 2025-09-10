@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class Graph {
     // TODO addVertex(int vertex) +
-    // TODO addEdge(int source, int destination)
+    // TODO addEdge(int source, int destination) +
     // TODO removeVertex(int vertex) +
     // TODO removeEdge(int source, int destination)
     // TODO hasVertex(int vertex) +
-    // TODO hasEdge(int source, int destination)
+    // TODO hasEdge(int source, int destination) +
 
 
     private final Map<Integer, List<Integer>> adjList = new HashMap<>();
@@ -54,6 +54,15 @@ public class Graph {
 
         adjList.get(source).add(destination);
         adjList.get(destination).add(source);
+    }
+
+    public void removeEdge(int source, int destination){
+        if(!this.hasVertex(source) || !this.hasVertex(destination)){
+            return;
+        }
+
+        adjList.get(source).remove(Integer.valueOf(destination));
+        adjList.get(destination).remove(Integer.valueOf(source));
     }
 
 }
