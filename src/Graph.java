@@ -4,13 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Graph {
-    // TODO addVertex(int vertex) +
-    // TODO addEdge(int source, int destination) +
-    // TODO removeVertex(int vertex) +
-    // TODO removeEdge(int source, int destination)
-    // TODO hasVertex(int vertex) +
-    // TODO hasEdge(int source, int destination) +
-
+    //  addVertex(int vertex) +
+    //  addEdge(int source, int destination) +
+    //  removeVertex(int vertex) +
+    //  removeEdge(int source, int destination) +
+    //  hasVertex(int vertex) +
+    //  hasEdge(int source, int destination) +
 
     private final Map<Integer, List<Integer>> adjList = new HashMap<>();
 
@@ -23,7 +22,6 @@ public class Graph {
     }
 
     public void removeVertex(int vertex){
-
         // it is possible to use Map's methods,
         // but it's unfair :)
         if(!this.hasVertex(vertex)){
@@ -34,7 +32,6 @@ public class Graph {
                 neighbours.remove(vertex);
             }
         }
-
         adjList.remove(vertex);
     }
 
@@ -64,5 +61,4 @@ public class Graph {
         adjList.get(source).remove(Integer.valueOf(destination));
         adjList.get(destination).remove(Integer.valueOf(source));
     }
-
 }
