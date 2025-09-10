@@ -1,7 +1,3 @@
-import java.util.List;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Graph graph  = new Graph();
@@ -13,6 +9,11 @@ public class Main {
                 .forEach((key, values)
                         -> System.out.println(key + " -> " + values));
 
+        graph.getAdjList().remove(4);
+
+        graph.getAdjList()
+                .forEach((key, values)
+                        -> System.out.println(key + " -> " + values));
 
     }
 }

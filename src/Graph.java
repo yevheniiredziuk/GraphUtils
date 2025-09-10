@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Graph {
-    // TODO addVertex(int vertex)
+    // TODO addVertex(int vertex) +
     // TODO addEdge(int source, int destination)
     // TODO removeVertex(int vertex)
     // TODO removeEdge(int source, int destination)
@@ -12,7 +12,7 @@ public class Graph {
     // TODO hasEdge(int source, int destination)
 
 
-    private Map<Integer, List<Integer>> adjList = new HashMap<>();
+    private final Map<Integer, List<Integer>> adjList = new HashMap<>();
 
     public void addVertex(int vertex){
         adjList.put(vertex, new ArrayList<>());
@@ -20,6 +20,19 @@ public class Graph {
 
     public Map<Integer, List<Integer>> getAdjList(){
         return adjList;
+    }
+
+    public void removeVertex(int i){
+        if(!adjList.containsKey(i)){
+            return;
+        }
+        for(List<Integer> neighbours : adjList.values()){
+            if(neighbours.contains(i)){
+                neighbours.remove(i);
+            }
+        }
+
+        adjList.remove(i);
     }
 
 
