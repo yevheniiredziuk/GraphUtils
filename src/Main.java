@@ -9,7 +9,8 @@ public class Main {
                 .forEach((key, values)
                         -> System.out.println(key + " -> " + values));
 
-        graph.getAdjList().remove(4);
+        graph.removeVertex(5);
+        graph.removeVertex(4);
 
         graph.getAdjList()
                 .forEach((key, values)

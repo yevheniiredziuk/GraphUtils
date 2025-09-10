@@ -23,7 +23,10 @@ public class Graph {
     }
 
     public void removeVertex(int i){
-        if(!adjList.containsKey(i)){
+
+        // it is possible to use Map's methods,
+        // but it's unfair :)
+        if(!this.containsVertex(i)){
             return;
         }
         for(List<Integer> neighbours : adjList.values()){
@@ -33,6 +36,10 @@ public class Graph {
         }
 
         adjList.remove(i);
+    }
+
+    public boolean containsVertex(int v){
+        return adjList.containsKey(v);
     }
 
 
