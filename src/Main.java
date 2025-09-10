@@ -9,12 +9,13 @@ public class Main {
                 .forEach((key, values)
                         -> System.out.println(key + " -> " + values));
 
-        graph.removeVertex(5);
-        graph.removeVertex(4);
+        graph.addEdge(2,4);
+        graph.addEdge(2,5);
 
         graph.getAdjList()
                 .forEach((key, values)
                         -> System.out.println(key + " -> " + values));
 
+        System.out.println(graph.hasEdge(2, 4));
     }
 }

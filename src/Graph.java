@@ -6,9 +6,9 @@ import java.util.Map;
 public class Graph {
     // TODO addVertex(int vertex) +
     // TODO addEdge(int source, int destination)
-    // TODO removeVertex(int vertex)
+    // TODO removeVertex(int vertex) +
     // TODO removeEdge(int source, int destination)
-    // TODO hasVertex(int vertex)
+    // TODO hasVertex(int vertex) +
     // TODO hasEdge(int source, int destination)
 
 
@@ -22,25 +22,38 @@ public class Graph {
         return adjList;
     }
 
-    public void removeVertex(int i){
+    public void removeVertex(int vertex){
 
         // it is possible to use Map's methods,
         // but it's unfair :)
-        if(!this.containsVertex(i)){
+        if(!this.hasVertex(vertex)){
             return;
         }
         for(List<Integer> neighbours : adjList.values()){
-            if(neighbours.contains(i)){
-                neighbours.remove(i);
+            if(neighbours.contains(vertex)){
+                neighbours.remove(vertex);
             }
         }
 
-        adjList.remove(i);
+        adjList.remove(vertex);
     }
 
-    public boolean containsVertex(int v){
+    public boolean hasVertex(int v){
         return adjList.containsKey(v);
     }
 
+    public boolean hasEdge(int source, int destination){
+        List<Integer> neighbours = adjList.get(source);
+        return neighbours.contains(destination);
+    }
+
+    public void addEdge(int source, int destination){
+        if(!this.hasVertex(source) || !this.hasVertex(destination)){
+            return;
+        }
+
+        adjList.get(source).add(destination);
+        adjList.get(destination).add(source);
+    }
 
 }
